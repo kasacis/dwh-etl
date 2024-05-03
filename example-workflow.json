@@ -1,0 +1,70 @@
+{
+    "title": "Serverless Data Warehouse ETL Workflow",
+    "description": "A Step Functions Workflow extracts, transforms, and loads data from various sources into a serverless data warehouse for analytics",
+    "language": "",
+    "simplicity": "2 - Pattern",
+    "usecase": "",
+    "type": "Standard",
+    "diagram":"/resources/statemachine.png",
+    "videoId": "",
+    "level": "200",
+    "framework": "SAM",
+    "services": ["sns"],
+    "introBox": {
+      "headline": "Serverless Data Warehouse ETL Workflow",
+      "text": [
+        "In this workflow, a Glue ETL job takes a JSON file as an input from S3 and then transforms one of the field name. Together with the transformation, required data catalog is created and data is inserted to Redshift serverless datawarehouse by running Glue Connectors."
+
+      ]
+    },
+    "testing": {
+      "headline": "Testing",
+      "text": [
+        "See the GitHub repo for detailed testing instructions."
+      ]
+    },
+    "cleanup": {
+      "headline": "Cleanup",
+      "text": [
+        "1. Delete the stack: <code>sam delete</code>."
+      ]
+    },
+    "deploy": {
+      "text": [
+        "sam deploy --guided"
+      ]
+    },
+    "gitHub": {
+      "template": {
+        "repoURL": "https://github.com/aws-samples/step-functions-workflows-collection/",
+        "templateDir":"dwh-etl",
+        "templateFile": "template.yaml",
+        "ASL": "statemachine/StateMachine.asl.yaml"
+      },
+      "payloads": [
+        {
+          "headline": "",
+          "payloadURL": ""
+        }
+      ]
+    },
+    "resources": {
+      "headline": "Additional resources",
+      "bullets": [
+        {
+          "text": "The AWS Step Functions Workshop",
+          "link": "https://catalog.workshops.aws/stepfunctions/en-US"
+        }
+      ]
+    },
+    "authors": [
+        {
+          "name": "Serda Kasaci Yildirim",
+          "image": "https://drive.google.com/file/d/1rzVS1hrIMdqy6P9i7-o7OBLNc0xY0FVB/view?usp=sharing",
+          "bio": "Serda is a Solutions Architect at Amazon Web Services (AWS) based in Vienna, Austria.",
+          "linkedin": "serdakasaci",
+          "twitter": ""
+        }
+      ]
+  }
+  
