@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  A Step Functions Workflow for Serverless Data Warehouse ETL Workflow
+  
+Resources:
+##########################################################################
+#   STEP FUNCTION                                                        #
+##########################################################################
+
+  StateMachineServerlessDWHETL:
+    Type: AWS::Serverless::StateMachine # More info about State Machine Resource: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html
+    Properties:
+      DefinitionUri: statemachine/StateMachine.asl.json
+      Type: STANDARD
+      Policies:
+        - Version: '2012-10-17' # Policy Document
+          Statement:
+            - Effect: Allow
+              Action:
+                - glue:GetDatabase
+                - glue:CreateDatabase
+                - glue:StartJobRun
+                - glue:GetCrawler
+              Resource: "arn:aws:glue:::/*"
+            
+##########################################################################
+#   Outputs                                                              #
+##########################################################################
+Outputs:
+  StateMachineServerlessDWHETL:
+    Description: "Serverless Data Warehouse ETL State machine ARN"
+    Value: !Ref StateMachineServerlessDWHETL
